@@ -16,7 +16,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  // bug-1 replace plus with push
+  // bug-1 replace plus with push react button fixed
     likedPostsId.push(id);
     showPosts(posts);
 };
@@ -56,6 +56,7 @@ const createPost = (post) => {
     const div = document.createElement("article");
     div.classList.add("post");
     // bug-2 showing user's profile picture with post.userImage  
+    // bug-4 who commented and what's the comment with 0th index of comments array
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -123,9 +124,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments[0]?.user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments[0]?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
