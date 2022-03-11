@@ -55,6 +55,7 @@ const createPost = (post) => {
     const image = post.image;
     const div = document.createElement("article");
     div.classList.add("post");
+    // bug-2 showing user's profile picture with post.userImage  
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -63,7 +64,8 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                  
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
