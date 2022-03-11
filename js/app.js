@@ -26,7 +26,7 @@ const reportPost = (id) => {
     const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
     showPosts(remainingPosts);
 };
-// bug-3 fixed text wast loaded like a string which should be a variable
+// bug-3 fixed text wast loaded like a string which should be a variable fixed
 const displayContent = (text) => {
     return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
@@ -55,8 +55,8 @@ const createPost = (post) => {
     const image = post.image;
     const div = document.createElement("article");
     div.classList.add("post");
-    // bug-2 showing user's profile picture with post.userImage  
-    // bug-4 who commented and what's the comment with 0th index of comments array
+    // bug-2 showing user's profile picture with post.userImage  fixed
+    // bug-4 who commented and what's the comment with 0th index of comments array fixed
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -147,7 +147,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
-  // bug-6 fixed adding liked posts again and again with clearing the previous text contents
+  // bug-6 fixed adding liked posts again and again with clearing the previous text contents fixed
   document.getElementById("liked").textContent=''
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
@@ -158,7 +158,9 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    // bug-5 showing all posts in the reportedpost section and the same posts were adding again and again fixed
+    document.getElementById("reported").textContent=''
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById("reported").appendChild(div);
     });
