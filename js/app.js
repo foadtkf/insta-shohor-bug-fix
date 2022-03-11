@@ -147,6 +147,8 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  // bug-6 fixed adding liked posts again and again with clearing the previous text contents
+  document.getElementById("liked").textContent=''
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
         const div = createPost(post);
